@@ -1,4 +1,4 @@
-# PnP Starter Office 365/SharePoint Online Intranet #
+# PnP Starter Intranet for Office 365/SharePoint Online  #
 
 ### Summary ###
 
