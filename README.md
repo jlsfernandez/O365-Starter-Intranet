@@ -2,14 +2,15 @@
 
 ### Summary ###
 
-Intranet projects shouldn’t have to reinvent the wheel every time for basic features.
-This solution aims to provide the fundamentals building blocks of a common intranet solution with SharePoint Online/Office 365 using the latest web stack development tools and frameworks.
+Intranet projects shouldn’t have to reinvent the wheel every time for basic features (like navigation or multilingualism).
+This solution aims to provide the fundamental building blocks of a common intranet solution with SharePoint Online/Office 365 through a lightweight client side solution using the latest web stack development tools and frameworks.
+
 Here is what you get with this sample:
 - A basic page creation experience with common layouts for static page, home page and news.
 - Common intranet navigation menus like main menu, header links, footer, contextual menu and breadcrumb based on taxonomy.
 - A basic translation system for multilingual sites (pages and UI).
 - A search experience including results with preview.
-- A mobile intranet with SharePoint Online.
+- A mobile intranet using SharePoint Online.
 
 <p align="center">Home Page</p>
 <p align="center">
@@ -31,11 +32,11 @@ Here is what you get with this sample:
 
 This solution is implemented using:
 
-- TypeScript (for the code structure and class definitions)
+- TypeScript (for the code structure and class definition)
 - Webpack (for application bundling and packaging)
-- PnP JS Core (for REST communications with SharePoint Online)
-- PnP Remote Provisining engine and PowerShell cmdlets (for SharePoint site configuration and artefacts provisioning)
-- Knockout JS (for application behavior)
+- PnP JS Core library (for REST communications with SharePoint Online)
+- PnP Remote Provisioning engine and PnP PowerShell cmdlets (for SharePoint site configuration and artefacts provisioning)
+- Knockout JS (for application behavior and UI components)
 - Bootstrap (for mobile support)
 - Office UI Fabric (for icons, fonts and styles)
 - Node JS (for dependencies management with npm)
@@ -64,17 +65,17 @@ Provided plan:
  * Design an mobile considerations
  * The navigation system
  * The authoring experience
- * Multilingual features
+ * The multilingual features
  * The search experience 
  * Analytics with Azure
 
 What's next?
 
-* Comments and social features
+* Comments and social features with Yammer
 
 ### Set up your environment ###
 
-Before starting, you need to install some prerequisites:
+Before starting, you'll need to install some prerequisites:
 
 - Install the last release of [PnP PowerShell cmdlets SharePointPnPPowerShellOnline](https://github.com/OfficeDev/PnP-PowerShell/releases).
  (We recommend to use the June 2016 Intermediate 3 version, there are some issues with the August 2016 version)
@@ -102,7 +103,7 @@ Version  | Date | Comments
 # Installation #
 
 - Download the PnP source code as ZIP from GitHub and extract it to your destination folder
-- Set up your environment
+- Set up your environment as described above
 - On a remote machine (basically, where PnP cmdlets are installed), start new PowerShell session as an **administrator** an call the `Deploy-Solution.ps1` script with your parameters like this:
 
 ```csharp
@@ -112,10 +113,10 @@ $SiteUrl = "https://<your_tenant>.sharepoint.com/sites/<your_site_collection>"
 
 Set-Location "<your_installation_folder>\PnP\O365 Starter Intranet"
 
-$Script = ".\Deploy.ps1" 
+$Script = ".\Deploy-Solution.ps1" 
 & $Script -SiteUrl $SiteUrl -UserName $UserName -Password $Password
 
 ```
-- Use the "-Prod" switch for the `Deploy-Solution.ps1` script to use a production bundled version of the code.
+- Use the "`-Prod`" switch for the `Deploy-Solution.ps1` script to use a production bundled version of the code.
 
 ----------
