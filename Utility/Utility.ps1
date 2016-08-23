@@ -144,11 +144,11 @@ function Set-FolderContentTypesOrder() {
 
 			if ($Ct) {
 
-				$null = $ContentTypeOrder.Add($Ct.Id)
+				$CtOrder = $ContentTypeOrder.Add($Ct.Id)
 			}
 		}
 
-		Get-SPOProperty -ClientObject $Folder -Property UniqueContentTypeOrder
+		$Property = Get-SPOProperty -ClientObject $Folder -Property UniqueContentTypeOrder
 
 		$Folder.UniqueContentTypeOrder = $ContentTypeOrder
 		$Folder.Update()
