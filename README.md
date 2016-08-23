@@ -53,21 +53,14 @@ A blog series will come soon to explain how we did this solution in details.
 
 Provided plan:
 
-* Part 1: Functional overview (How to use the solution?)
- * Create pages and news
- * Translate a page to multiple languages
- * Configure the cache to improve performances
-
-* Part 2: Technical part (How it is implemented?)
- * Frameworks and patterns used
- * ALM considerations and global solution architecture
- * Provisioning with the PnP remote provisioning engine & bundling with Webpack
- * Design an mobile considerations
- * The navigation system
- * The authoring experience
- * The multilingual features
- * The search experience 
- * Analytics with Azure
+* [Part 1: Functional overview (How to use the solution?)](http://thecollaborationcorner.com/2016/08/22/part-1-functional-overview-how-to-use-the-solution/)
+* Part 2: Solution architecture, frameworks and patterns used (How it is implemented?)
+* Part 3: Design an mobile considerations
+* Part 4: The navigation system
+* Part 5: The authoring experience
+* Part 6: The multilingual features
+* Part 7: The search experience 
+* Part 8: Analytics with Azure
 
 What's next?
 
