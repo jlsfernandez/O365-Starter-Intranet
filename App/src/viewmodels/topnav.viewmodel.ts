@@ -41,10 +41,10 @@ export class TopNavViewModel extends NavigationViewModel {
             e.stopPropagation();
         });
 
-        let filterQuery: string = "IntranetContentLanguage eq '"+ currentLanguage + "'";
+        let filterQuery: string = "IntranetContentLanguage eq '" + currentLanguage + "'";
 
         // Read the configuration value from the configuration list and for the current langauge. We use a list item instead of a term set property to improve performances (SOD loading is slow compared to a simple REST call).
-        pnp.sp.site.rootWeb.lists.getByTitle(configListName).items.filter(filterQuery).top(1).get().then((item)=> {
+        pnp.sp.site.rootWeb.lists.getByTitle(configListName).items.filter(filterQuery).top(1).get().then((item) => {
 
             if (item.length > 0) {
 

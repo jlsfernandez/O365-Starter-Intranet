@@ -7,7 +7,6 @@
 
 import { UtilityModule } from "../core/utility";
 import i18n = require("i18next");
-import * as pnp from "sp-pnp-js";
 
 export class SearchBoxViewModel {
 
@@ -56,7 +55,7 @@ export class SearchBoxViewModel {
         ]);
 
         let currentPageName = window.location.pathname;
-        let currentCategory = ko.utils.arrayFirst(this.searchCategories(), function(item) {
+        let currentCategory = ko.utils.arrayFirst(this.searchCategories(), (item) => {
             return item.searchPageUrl === currentPageName.substring(currentPageName.lastIndexOf("/") + 1);
         });
 
@@ -92,12 +91,12 @@ export class SearchBoxViewModel {
                 queryUrl = profileUrl.protocol + "//" + profileUrl.hostname + "/_layouts/15/me.aspx?q=" + this.inputQuery();
 
                 // Open the page in a new tab
-                window.open(queryUrl)
+                window.open(queryUrl);
 
             } else {
 
                 queryUrl = _spPageContextInfo.siteAbsoluteUrl + "/Pages/" + this.selectedCategory().searchPageUrl + "?k=" + this.inputQuery();
-                
+
                 // Redirect to the correct page according to selected category
                 window.location.href = queryUrl;
             }

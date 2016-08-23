@@ -59,10 +59,10 @@ export class DefaultDisplayTemplateItemViewModel {
                 $(element).trunk8(trunk8Options);
 
                 // Adjust automatically news summary on resize
-                $(window).resize(function (event) {
+                $(window).resize((event) => {
                     $(element).trunk8(trunk8Options);
                 });
-            }
+            },
         };
 
         ko.bindingHandlers.formatDateField = {
@@ -75,7 +75,7 @@ export class DefaultDisplayTemplateItemViewModel {
                 let date = moment(value).format(this.dateFormat);
 
                 $(element).text(date);
-            }
+            },
         };
 
         // This binding handlers is used to avoid applying bindings twice (from the main script for components)

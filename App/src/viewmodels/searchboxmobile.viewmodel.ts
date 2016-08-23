@@ -42,11 +42,11 @@ export class SearchBoxMobileViewModel extends SearchBoxViewModel {
 
         ko.bindingHandlers.inputFocus = {
 
-            init: function(element, valueAccessor) {
+            init: (element, valueAccessor) => {
 
                 let value = valueAccessor();
                 ko.unwrap(value) ? $(element).focus() : $(element).blur();
-            }
+            },
         };
 
     }
@@ -63,7 +63,7 @@ export class SearchBoxMobileViewModel extends SearchBoxViewModel {
             this.selectedIndex(0);
 
         } else {
-            this.selectedIndex(this.selectedIndex() + 1)
+            this.selectedIndex(this.selectedIndex() + 1);
         }
 
         this.selectedCategory(this.searchCategories()[this.selectedIndex()]);

@@ -38,7 +38,7 @@
  *    - Expected behavior
  *       - The association key is kept. The new created translation used the same association key as the orignal page  
  * 
- * **********************************************/ 
+ * **********************************************/
 
 /// <reference path="../../typings/globals/knockout/index.d.ts" />
 /// <reference path="../../typings/globals/sprintf-js/index.d.ts" />
@@ -72,7 +72,7 @@ export class TranslationControlViewModel {
     private wait: KnockoutObservable<boolean>;
     private messageStatusClass: KnockoutObservable<string>;
     private messageStatusIcon: KnockoutObservable<string>;
-    private isFileNameValid: KnockoutComputed<boolean>
+    private isFileNameValid: KnockoutComputed<boolean>;
     private isTranslationExist: KnockoutComputed<boolean>;
     private isError: KnockoutObservable<boolean>;
     private existingTranslations: KnockoutObservableArray<any>;
@@ -94,7 +94,7 @@ export class TranslationControlViewModel {
 
         // Get context informations for the current page
         this.currentPageId = _spPageContextInfo.pageItemId;
-        this.currentPageUrl =_spPageContextInfo.serverRequestPath; // Note: _spPageContextInfo.serverRequestPath works with friendly URLs as well
+        this.currentPageUrl = _spPageContextInfo.serverRequestPath; // Note: _spPageContextInfo.serverRequestPath works with friendly URLs as well
 
         // Init observables
         this.wait = ko.observable(true);
@@ -112,13 +112,13 @@ export class TranslationControlViewModel {
 
             if (destinationName.length === 0) {
 
-                    this.invalidFilenameMessage(i18n.t("emptyFilenameMessage"))
+                    this.invalidFilenameMessage(i18n.t("emptyFilenameMessage"));
                     return false;
 
             } else {
                 if (/[#%\*\[\]\\/|\\":<>\?]/.test(destinationName) || destinationName.localeCompare(currentFileName) === 0) {
 
-                    this.invalidFilenameMessage(i18n.t("invalidFilenameMessage"))
+                    this.invalidFilenameMessage(i18n.t("invalidFilenameMessage"));
                     return false;
 
                 } else {
@@ -131,7 +131,7 @@ export class TranslationControlViewModel {
 
         this.buttonLabel = ko.computed(() => {
 
-            return sprintf.sprintf(i18n.t("translateButtonLabel"), this.selectedLanguage()); 
+            return sprintf.sprintf(i18n.t("translateButtonLabel"), this.selectedLanguage());
         });
 
         this.selectLanguageMessage = i18n.t("selectLanguageMessage");
@@ -151,7 +151,7 @@ export class TranslationControlViewModel {
 
                 return false;
             }
-        })
+        });
 
         this.isError = ko.observable(false);
         this.infoMessage = ko.observable("");
@@ -182,7 +182,7 @@ export class TranslationControlViewModel {
             let targetLanguage: string = this.selectedLanguage();
 
             // Does a page in the 'Pages' library exist with the same GUID as me for the selected target language ?
-            let filterQuery: string = this.associationKeyFieldName + " eq '" + item[this.associationKeyFieldName] + "' and ID ne '" + item["ID"] + "' and " + this.languageFieldName + " eq '" + targetLanguage  + "'";
+            let filterQuery: string = this.associationKeyFieldName + " eq '" + item[this.associationKeyFieldName] + "' and ID ne '" + item.ID + "' and " + this.languageFieldName + " eq '" + targetLanguage  + "'";
 
             pnp.sp.web.lists.getByTitle("Pages").items.filter(filterQuery).select("FileRef, FileLeafRef").get().then((item) => {
 
@@ -246,7 +246,7 @@ export class TranslationControlViewModel {
                     pnp.sp.web.getFileByServerRelativeUrl(destinationFile).listItemAllFields.select("ID").get().then((item) => {
 
                         // Set the peer language on the destination file
-                        pnp.sp.web.lists.getByTitle("Pages").items.getById(item["ID"]).update({[this.languageFieldName]: this.selectedLanguage()}).then((item) => {
+                        pnp.sp.web.lists.getByTitle("Pages").items.getById(item.ID).update({[this.languageFieldName]: this.selectedLanguage()}).then((item) => {
 
                             this.isNewCreation(true);
                             this.checkForExistingTranslations();

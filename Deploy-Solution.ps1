@@ -89,6 +89,9 @@ Pop-Location
 # -------------------------------------------------------------------------------------
 Write-Host "3# Apply the provisioning template to the root site..." -ForegroundColor Magenta
 
+# Create news folders in the "Pages" library
+Ensure-SPOFolder -SiteRelativePath "Pages/News" | Out-Null
+
 # Load the custom extensibility provider type in the current PS session
 Add-Type -Path $CustomProviderDllPath 
 

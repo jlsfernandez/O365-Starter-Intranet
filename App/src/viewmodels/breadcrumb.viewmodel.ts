@@ -6,11 +6,11 @@
 /// <reference path="../../typings/globals/knockout/index.d.ts" />
 
 import "pubsub-js";
-import { NavigationViewModel } from "../shared/navigation.viewmodel";
-import { NavigationNode } from "../shared/navigationnode";
-import { UtilityModule } from "../core/utility";
 import * as pnp from "sp-pnp-js";
 import i18n = require("i18next");
+import { NavigationNode } from "../shared/navigationnode";
+import { NavigationViewModel } from "../shared/navigation.viewmodel";
+import { UtilityModule } from "../core/utility";
 
 export class BreadcrumbViewModel extends NavigationViewModel {
 
@@ -71,7 +71,7 @@ export class BreadcrumbViewModel extends NavigationViewModel {
                             currentNode = parentNode;
                         }
 
-                        breadcrumbNodes = breadcrumbNodes.reverse(); 
+                        breadcrumbNodes = breadcrumbNodes.reverse();
 
                         this.initialize(breadcrumbNodes);
 

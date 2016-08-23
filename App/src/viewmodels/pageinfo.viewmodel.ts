@@ -38,7 +38,7 @@ export class PageInfoViewModel {
                 let date = moment(value).format("LL");
 
                 $(element).text(date);
-            }
+            },
         };
 
         // Note 1: Be careful, there is a bug with GET REST API for taxonomy fields when they have only a single value (i.e the Label property is not correct)
@@ -46,7 +46,7 @@ export class PageInfoViewModel {
         // Note 2: If no fields are specified, the pnp call return all fields from the item (without expand)
         pnp.sp.web.lists.getByTitle("Pages").items.getById(_spPageContextInfo.pageItemId).select(this.selectedFields).expand(this.expandedFields).get().then((item) => {
 
-            let allItemProperties : Array<Promise<any>> = [];
+            let allItemProperties: Array<Promise<any>> = [];
 
             // Loop through each returned properties for the item and build an array of promises
             for (let key in item) {
@@ -60,7 +60,7 @@ export class PageInfoViewModel {
                         if (value) {
 
                             // Mutiple values taxonomy (returned as an array of objects)
-                            if(Array.isArray(value)) {
+                            if (Array.isArray(value)) {
 
                                 let arrayValues: Array<Promise<string>> = [];
                                 value.forEach(element => {
@@ -70,11 +70,11 @@ export class PageInfoViewModel {
                                         let p2 = new Promise<any>((resolve) => {
                                             this.taxonomyModule.init().then(() => {
 
-                                                this.taxonomyModule.getTermById(new SP.Guid(element["TermGuid"])).then((term) => {
+                                                this.taxonomyModule.getTermById(new SP.Guid(element.TermGuid)).then((term) => {
 
                                                     resolve(term.get_name());
-                                                })
-                                            });	
+                                                });
+                                            });
                                         });
 
                                         arrayValues.push(p2);

@@ -15,7 +15,7 @@ export class UtilityModule {
     public stringifyTreeObject (object: Object): string {
 
             let cache = [];
-            let stringified = JSON.stringify(object, function(key, value) {
+            let stringified = JSON.stringify(object, (key, value) => {
                 if (typeof value === "object" && value !== null) {
                     if (cache.indexOf(value) !== -1) {
                         // Circular reference found, discard key
@@ -37,7 +37,7 @@ export class UtilityModule {
      */
     public getNewGuid (): string {
 
-        let guid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+        let guid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
             let r = Math.random()*16|0, v = c === "x" ? r : (r&0x3|0x8);
             return v.toString(16);
 

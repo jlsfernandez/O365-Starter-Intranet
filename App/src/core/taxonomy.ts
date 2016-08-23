@@ -67,7 +67,7 @@ export class TaxonomyModule {
 
         let p = new Promise<string>((resolve, reject) => {
 
-            context.executeQueryAsync(function () {
+            context.executeQueryAsync(() => {
 
                 let propertyValue: string = termSet.get_customProperties()[customPropertyName] !== undefined ? termSet.get_customProperties()[customPropertyName] : "";
 
@@ -301,7 +301,7 @@ export class TaxonomyModule {
 
         let p = new Promise<{ [key: string]: string }>((resolve, reject) => {
 
-            context.executeQueryAsync(function () {
+            context.executeQueryAsync(() => {
 
                 let properties = taxonomyTerm.get_customProperties();
 

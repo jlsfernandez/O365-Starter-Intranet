@@ -3,10 +3,10 @@
 // ========================================
 
 import { NavigationViewModel } from "../shared/navigation.viewmodel";
-import { UtilityModule } from "../core/utility";
 import { NavigationNode } from "../shared/navigationnode";
-import * as pnp from "sp-pnp-js";
+import { UtilityModule } from "../core/utility";
 import "pubsub-js";
+import * as pnp from "sp-pnp-js";
 
 export class ContextualMenuViewModel extends NavigationViewModel {
 

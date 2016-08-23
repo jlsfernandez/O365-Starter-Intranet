@@ -32,7 +32,7 @@ Here is what you get with this sample:
 
 This solution is implemented using:
 
-- TypeScript (for the code structure and class definition)
+- TypeScript (for the code structure and definitions)
 - Webpack (for application bundling and packaging)
 - PnP JS Core library (for REST communications with SharePoint Online)
 - PnP Remote Provisioning engine and PnP PowerShell cmdlets (for SharePoint site configuration and artefacts provisioning)
@@ -41,7 +41,7 @@ This solution is implemented using:
 - Office UI Fabric (for icons, fonts and styles)
 - Node JS (for dependencies management with npm)
 
-The entire solution is "site collection self-contained" to not interfer with the global tenant configuration (especially taxonomy and search configuration).
+The entire solution is "site collection self-contained" to not interfer with the global tenant configuration (especially taxonomy and search configuration). It allows you to deploy this solution safely in your tenant.
 
 ### Applies to ###
 -  Office 365 Multi Tenant (MT)
@@ -49,9 +49,7 @@ The entire solution is "site collection self-contained" to not interfer with the
 
 ### Documentation #
 
-A blog series will come soon to explain how we did this solution in details.
-
-Provided plan:
+A blog series will come soon to explain how we did this solution in details. Here is the provided plan:
 
 * [Part 1: Functional overview (How to use the solution?)](http://thecollaborationcorner.com/2016/08/22/part-1-functional-overview-how-to-use-the-solution/)
 * Part 2: Solution architecture, frameworks and patterns used (How it is implemented?)
@@ -73,9 +71,9 @@ Before starting, you'll need to install some prerequisites:
 - Install the last release of [PnP PowerShell cmdlets SharePointPnPPowerShellOnline](https://github.com/OfficeDev/PnP-PowerShell/releases).
  (We recommend to use the June 2016 Intermediate 3 version, there are some issues with the August 2016 version)
 - Install Node.js on your machine https://nodejs.org/en/
-- Install the 'typings' node client (`npm install typings --global`)
-- Install the 'webpack' node client (`npm install webpack --global`)
-- Go to the ".\App" folder and install all dependencies listed in the package.json file by running the "npm install" cmd 
+- Install the 'typings' Node JS client (`npm install typings --global`)
+- Install the 'webpack' Node JS client (`npm install webpack --global`)
+- Go to the ".\App" folder and install all dependencies listed in the package.json file by running the `npm install` cmd 
 - Install TypeScript typings by running the "`typings install`" cmd from the ".\App" folder.
 - Check if everything is OK by running the "`webpack`" cmd from the ".\App" folder. We shouldn't any errors here (just warnings)
 - Create a site collection with the publishing template. We don't manage the site collection creation process in the deployment procedure because it takes too much time with SharePoint Online.
@@ -83,13 +81,16 @@ Before starting, you'll need to install some prerequisites:
 ### Solution ###
 Solution                | Author(s)
 ------------------------|----------
-PnP.O365StarterIntranet | Franck Cornu
+Business.O365StarterIntranet | Franck Cornu
 
 ### Version history ###
 Version  | Date | Comments
 ---------| -----| --------
 1.0 | August 19th 2016 | Initial release
 
+### Disclaimer ###
+
+THIS CODE IS PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
 
 ----------
 

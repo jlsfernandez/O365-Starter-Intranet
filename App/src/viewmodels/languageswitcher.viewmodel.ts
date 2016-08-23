@@ -32,7 +32,7 @@
 /// <reference path="../../typings/globals/es6-promise/index.d.ts" />
 
 import * as pnp from "sp-pnp-js";
-import i18n = require('i18next');
+import i18n = require("i18next");
 
 export class LanguageSwitcherViewModel {
 
@@ -73,7 +73,7 @@ export class LanguageSwitcherViewModel {
             let currentPageLanguage = item[this.languageFieldName];
 
             // Does a page in the 'Pages' library exist with the same GUID as me and an other language?
-            let filterQuery: string = this.associationKeyFieldName + " eq '" + item[this.associationKeyFieldName] + "' and ID ne '" + item["ID"] + "' and " + this.languageFieldName + " ne '" + currentPageLanguage  + "'";
+            let filterQuery: string = this.associationKeyFieldName + " eq '" + item[this.associationKeyFieldName] + "' and ID ne '" + item.ID + "' and " + this.languageFieldName + " ne '" + currentPageLanguage  + "'";
 
             // Return only one element ordered descending by the Modified date
             // It can't have more than one translation for the current page
@@ -99,7 +99,7 @@ export class LanguageSwitcherViewModel {
                         if (item.length > 0) {
 
                             let itemLanguage: string = item[0][this.languageFieldName];
-                            let itemUrl: string = item[0]["FileRef"];
+                            let itemUrl: string = item[0].FileRef;
 
                             if (element.localeCompare(itemLanguage) === 0 ) {
 
@@ -129,7 +129,7 @@ export class LanguageSwitcherViewModel {
 
             }).catch((errorMesssage) => {
 
-                pnp.log.write(errorMesssage, pnp.log.LogLevel.Error); 
+                pnp.log.write(errorMesssage, pnp.log.LogLevel.Error);
             });
 
         }).catch((errorMesssage) => {

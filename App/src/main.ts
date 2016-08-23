@@ -173,7 +173,7 @@ export class Main {
             // The "IntranetContentLanguage" is a choice field so we don't need taxonomy field here. Values of this choice field have to be 'en' or 'fr' to fit with the format below.
             pnp.sp.web.lists.getByTitle("Pages").items.getById(_spPageContextInfo.pageItemId).select("IntranetContentLanguage").get().then((item) => {
 
-                let itemLanguage: string = item["IntranetContentLanguage"];
+                let itemLanguage: string = item.IntranetContentLanguage;
 
                 // Default language for the intranet
                 let workingLanguage: string = "en";
@@ -189,11 +189,11 @@ export class Main {
                     lng: workingLanguage,
                     resources: {
 
-                        "en": {
+                        en: {
                             translation: enUSResources,
 
                         },
-                        "fr": {
+                        fr: {
                             translation: frFRResources,
                         },
                     },
